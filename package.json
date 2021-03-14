@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "demo": "babel-node demo.js"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -21,6 +22,7 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
+    "@babel/node": "^7.13.10",
     "crypto-js": "4.0.0",
     "ramda": "^0.27.1"
   }
