@@ -3,7 +3,7 @@ import { splitEvery, isEmpty, pipe, map } from 'ramda';
 import { sha256Hash } from './utils';
 import MerkleTree from './MerkleTree';
 
-function MerkleTools({ hash = sha256Hash }) {
+function MerkleTools({ hash = sha256Hash } = {}) {
   // If node has only one child, its hash is the same as its child’s.
   const hashPair = ([l, r]) => (r ? hash(l + r) : l);
 
@@ -43,7 +43,7 @@ function MerkleTools({ hash = sha256Hash }) {
    * Given a data element, a proof path, and merkle root,
    * Verify that a data element belongs to the tree.
    */
-  const validateProof = (data, proof, merkleRoot) => {
+  const validateProof = ({ data, proof, root }) => {
     const hashedData = hash(data);
 
     const generateRoot = proof.reduce((acc, sibling) => {
@@ -53,7 +53,7 @@ function MerkleTools({ hash = sha256Hash }) {
       return hashPair(pair);
     }, hashedData);
 
-    return generateRoot === merkleRoot;
+    return generateRoot === root;
   };
 
   return {
