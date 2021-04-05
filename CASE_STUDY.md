@@ -11,7 +11,8 @@
    - A PlayerCard may only belong to a single team per tournament.
 
    We can model a relational database such as:
-   [schema]
+   ![Schema](https://user-images.githubusercontent.com/2429708/113555168-bb335c00-95fa-11eb-9658-231740fab1d7.png)
+
 
    Ignoring no-relational attributes and creation logic constraints, we would write the following models [pseudo-ror]:
 
